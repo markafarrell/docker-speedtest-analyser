@@ -2,8 +2,8 @@
 
 Automated docker speedtest analyser tool with included web interface to monitor your internet speed connection over time. Setup at home on your NAS (Synology, QNAP tested) and the container runs hourly speedtests. The speedtest results are displayed in an webinterface as line graph(s) over the day.
 
-This tool was created in reference to [this reddit post](https://www.reddit.com/r/technology/comments/43fi39/i_set_up_my_raspberry_pi_to_automatically_tweet/).  
-It used [speedtest-cli](https://github.com/sivel/speedtest-cli) to make speedtests and log them into a CSV file.  
+This tool was created in reference to [this reddit post](https://www.reddit.com/r/technology/comments/43fi39/i_set_up_my_raspberry_pi_to_automatically_tweet/).
+It used [speedtest-cli](https://github.com/sivel/speedtest-cli) to make speedtests and log them into a CSV file.
 After that you can visit the web interface to view a hourly - time filterable reports about
 your internet connectivity speed.
 
@@ -36,7 +36,7 @@ the container please moint a volume in ``/var/www/html/data/``
 | Variable  | Type | Usage |  Example Value | Default |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | CRONJOB_ITERATION  | INT  | Time between speedtests in minutes. Value 15 means the cronjob runs every 15 minutes. Keep undefined to run hourly. | 15 | 60 |
-| SPEEDTEST_PARAMS  | STRING  | append extra parameter for cli command.<br/> `speedtest-cli --simple $SPEEDTEST_PARAMS` <br/> Check [parameter documentation](https://github.com/sivel/speedtest-cli#usage)  | --mini https://speedtest.test.fr | none |
+| SPEEDTEST_SERVERS  | STRING  | Comma seperated list of servers to use (Get server IDs using `speedtest-cli --list`) | 2225,2604 | none |
 
 # Config
 You can configure the visualization frontend via ``appConfig.js``
@@ -55,7 +55,7 @@ Change ``let appConfig = {`` to ``appConfig = {`` in /data/appConfig.js
 I kindly ask not to re-distribute this repo on hub.docker.com if it's not indispensable.
 
 ##### Disclaimer / Off topic
-I've written this small tool for private use on my Synology NAS.  
+I've written this small tool for private use on my Synology NAS.
 The original twitter function is removed in this version.
 
 If you want to contribute and report / fix bugs or bring the feature stuff written for your
