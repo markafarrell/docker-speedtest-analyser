@@ -19,8 +19,12 @@ def runSpeedtest():
         print('--- running speedtest ---')
 
         #execute speedtest
-        servers = []
         threads = None
+
+        if "SPEEDTEST_SERVERS" in os.environ:
+            servers = [ x.strip() for x in os.environ.get('SPEEDTEST_SERVERS').split(',') ]
+        else:
+            servers = []
 
         s = Speedtest()
         s.get_servers(servers)
