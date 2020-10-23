@@ -23,6 +23,8 @@ def runSpeedtest():
 
         if "SPEEDTEST_SERVERS" in os.environ:
             servers = [ x.strip() for x in os.environ.get('SPEEDTEST_SERVERS').split(',') ]
+            print('--- Using Servers ---')
+            print(servers.join(', '))
         else:
             servers = []
 
